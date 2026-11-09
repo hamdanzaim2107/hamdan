@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio pribadi Aquila Hamdan Za'im, mahasiswa Politeknik Indonusa Surakarta.">
+  <title>Aquila Hamdan Za’im — Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #29251f;
+      --muted: #756b5d;
+      --paper: #eee4d0;
+      --paper-light: #f7f0e2;
+      --rust: #a34f35;
+      --olive: #68704d;
+      --line: rgba(54, 45, 34, .24);
+      --shadow: 0 18px 45px rgba(29, 23, 17, .22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #28231d;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; pointer-events: none; z-index: 5;
+      opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-shell {
+      width: min(1240px, calc(100% - 48px));
+      margin: 28px auto;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid #c9b99d;
+      position: relative;
+      overflow: hidden;
+    }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 13px 25px;
+      background: #302a23; color: var(--paper);
+      font: 11px "DM Mono", monospace; letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .topbar .status { color: #c9b18c; }
+    .layout { display: grid; grid-template-columns: 205px 1fr; min-height: 800px; }
+    aside {
+      background: #332c24; color: #e8d8bd;
+      padding: 34px 22px;
+      display: flex; flex-direction: column;
+      border-right: 1px solid #75634c;
+    }
+    .monogram {
+      width: 100px; height: 100px; border: 1px solid #bda17a;
+      border-radius: 50%; display: grid; place-items: center;
+      margin: 0 auto 12px; position: relative;
+      font: 600 31px "Playfair Display", serif; color: #d4b98f;
+    }
+    .monogram::before, .monogram::after {
+      content: "✳"; position: absolute; color: #b99565; font-size: 13px;
+    }
+    .monogram::before { top: -8px; }
+    .monogram::after { bottom: -8px; }
+    .side-caption {
+      text-align: center; color: #bda987; font: italic 13px "Playfair Display", serif;
+      margin-bottom: 42px;
+    }
+    .nav-label { font: 10px "DM Mono", monospace; color: #a9977d; letter-spacing: .18em; margin: 0 0 12px 9px; }
+    nav { display: grid; gap: 7px; }
+    nav a {
+      padding: 11px 12px; border: 1px solid transparent;
+      color: #dfcfb5; font-size: 14px; transition: .2s;
+    }
+    nav a:hover, nav a.active { background: #c7a77d; color: #2d261e; border-color: #dfc8a6; }
+    .side-note {
+      margin-top: auto; padding-top: 28px; border-top: 1px solid #75634c;
+      color: #c4ad89; font: italic 16px/1.5 "Playfair Display", serif;
+    }
+    main { min-width: 0; }
+    .hero {
+      min-height: 510px; padding: 66px 6.5%;
+      display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
+      gap: 30px; position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle at 83% 20%, rgba(163,79,53,.13), transparent 28%),
+        linear-gradient(115deg, #302a23 0%, #393027 57%, #514332 100%);
+      color: #f0e2ca;
+    }
+    .hero::after {
+      content: "✳"; position: absolute; right: 5%; top: 8%;
+      color: rgba(224, 196, 153, .45); font-size: 76px;
+    }
+    .eyebrow { color: #c6a77d; font: 12px "DM Mono", monospace; letter-spacing: .18em; text-transform: uppercase; }
+    h1 {
+      font: 600 clamp(48px, 6vw, 78px)/.98 "Playfair Display", serif;
+      letter-spacing: -.04em; margin: 20px 0 22px; max-width: 650px;
+    }
+    h1 span { color: #caa77a; font-style: italic; }
+    .hero-rule { width: 100%; max-width: 420px; border-top: 1px solid #a58a66; position: relative; margin: 25px 0; }
+    .hero-rule::after { content: "✦"; position: absolute; right: -7px; top: -14px; color: #caa77a; }
+    .subtitle { font: italic 22px/1.4 "Playfair Display", serif; color: #e1c9a7; margin: 0 0 15px; }
+    .intro { max-width: 470px; color: #d6c9b4; font-size: 14px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      display: inline-block; padding: 11px 17px; border: 1px solid #c4a77e;
+      color: #f0e2ca; font: 11px "DM Mono", monospace; letter-spacing: .08em;
+      text-transform: uppercase; transition: .2s;
+    }
+    .btn.primary { background: #c4a77e; color: #2e281f; }
+    .btn:hover { transform: translateY(-2px); background: #e0c9a5; color: #2e281f; }
+    .visual {
+      min-height: 330px; position: relative; display: grid; place-items: center;
+    }
+    .sun {
+      width: min(310px, 75%); aspect-ratio: 1; border-radius: 50%;
+      background: repeating-linear-gradient(to bottom, #bd9162 0 9px, transparent 9px 15px);
+      opacity: .8; position: absolute; top: 5px; right: 10%;
+      mask-image: linear-gradient(to bottom, black 0 70%, transparent 70%);
+    }
+    .visual-card {
+      width: 76%; min-height: 260px; z-index: 1; margin-top: 55px;
+      border: 1px solid #d3b88f; padding: 12px; transform: rotate(3deg);
+      background: #d8c5a6; box-shadow: 12px 14px 0 rgba(0,0,0,.18);
+    }
+    .visual-inner {
+      min-height: 234px; display: flex; flex-direction: column; justify-content: space-between;
+      padding: 22px; color: #332b22;
+      background:
+        linear-gradient(145deg, rgba(44,37,29,.12), rgba(44,37,29,.02)),
+        repeating-linear-gradient(135deg, #c4ae8c 0 2px, #d8c5a6 2px 8px);
+      border: 1px solid rgba(58,45,31,.25);
+    }
+    .visual-inner .big-mark { font: 600 65px/.9 "Playfair Display", serif; }
+    .visual-inner .small-mark { font: 10px "DM Mono", monospace; letter-spacing: .16em; }
+    .visual-inner .quote { font: italic 20px "Playfair Display", serif; max-width: 220px; }
+    .section-wrap { padding: 35px 5.5% 48px; }
+    .section-heading {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+    }
+    .section-heading .star { color: var(--rust); font-size: 22px; }
+    h2 { font: 600 27px "Playfair Display", serif; margin: 0; }
+    .section-heading .line { flex: 1; border-top: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; }
+    .paper-card {
+      background: rgba(255,250,239,.48); border: 1px solid #cbbb9f;
+      padding: 24px; box-shadow: 4px 5px 0 rgba(75,58,36,.06);
+    }
+    .paper-card p { color: #5c5143; font-size: 14px; margin: 0; }
+    .fact-list { display: grid; gap: 12px; }
+    .fact { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 9px; font-size: 13px; }
+    .fact span:first-child { color: var(--muted); }
+    .fact strong { text-align: right; font-weight: 600; }
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 42px; }
+    .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .skill {
+      border: 1px solid #c9b99d; background: #e8dcc6; padding: 12px;
+      display: flex; align-items: center; gap: 10px; font-size: 13px;
+    }
+    .skill .symbol { color: var(--rust); font: 20px "Playfair Display", serif; }
+    .skill small { display: block; color: var(--muted); font: 10px "DM Mono", monospace; }
+    .project-card { border: 1px solid #c9b99d; background: #e8dcc6; padding: 18px; }
+    .project-top { display: flex; justify-content: space-between; gap: 12px; color: var(--rust); font: 10px "DM Mono", monospace; text-transform: uppercase; }
+    .project-card h3 { font: 600 21px "Playfair Display", serif; margin: 13px 0 7px; }
+    .project-card p { font-size: 13px; color: #65594a; margin: 0 0 14px; }
+    .tag { display: inline-block; border: 1px solid #b8a487; padding: 4px 7px; margin: 3px 4px 0 0; font: 10px "DM Mono", monospace; color: #65594a; }
+    .contact {
+      margin-top: 40px; padding: 24px 27px; background: #d8c5a6;
+      border: 1px solid #b9a382; display: flex; justify-content: space-between;
+      align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .contact h2 { font-size: 24px; }
+    .contact p { margin: 5px 0 0; color: #665947; font-size: 13px; }
+    .contact a { color: var(--rust); font: 12px "DM Mono", monospace; border-bottom: 1px solid currentColor; }
+    footer {
+      background: #302a23; color: #cdbb9e; padding: 18px 25px;
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      font: 10px "DM Mono", monospace; letter-spacing: .07em;
+    }
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { padding: 18px; display: block; }
+      .monogram { width: 66px; height: 66px; font-size: 23px; margin-bottom: 8px; }
+      .side-caption { margin-bottom: 15px; }
+      .nav-label, .side-note { display: none; }
+      nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; }
+      nav a { padding: 8px 11px; font-size: 12px; }
+      .hero { min-height: auto; padding: 48px 7%; }
+    }
+    @media (max-width: 620px) {
+      .site-shell { width: 100%; margin: 0; border: 0; }
+      .topbar { padding: 12px 16px; font-size: 9px; }
+      .hero { grid-template-columns: 1fr; padding: 45px 8% 30px; gap: 0; }
+      h1 { font-size: clamp(47px, 13vw, 68px); }
+      .visual { min-height: 270px; }
+      .visual-card { width: 72%; min-height: 220px; margin-top: 35px; }
+      .visual-inner { min-height: 194px; }
+      .section-wrap { padding: 30px 7% 38px; }
+      .about-grid, .columns { grid-template-columns: 1fr; }
+      .columns { gap: 25px; margin-top: 32px; }
+      .skill-list { grid-template-columns: 1fr 1fr; }
+      .paper-card { padding: 19px; }
+      footer { padding: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="topbar">
+      <span>AHZ — Personal Archive</span>
+      <span class="status">Est. 2026 &nbsp;·&nbsp; Surakarta, Indonesia</span>
+    </div>
+
+    <div class="layout">
+      <aside>
+        <div class="monogram">AHZ</div>
+        <div class="side-caption">A personal collection<br>of ideas &amp; progress</div>
+        <div class="nav-label">Navigate</div>
+        <nav>
+          <a class="active" href="#home">⌂ &nbsp; Home</a>
+          <a href="#about">✳ &nbsp; About</a>
+          <a href="#skills">✎ &nbsp; Skills</a>
+          <a href="#projects">▣ &nbsp; Projects</a>
+          <a href="#contact">✉ &nbsp; Contact</a>
+        </nav>
+        <div class="side-note">“Stay curious.<br>Keep creating.”</div>
+      </aside>
+
+      <main>
+        <section class="hero" id="home">
+          <div>
+            <div class="eyebrow">A little introduction</div>
+            <h1>Aquila<br><span>Hamdan Za’im</span></h1>
+            <div class="hero-rule"></div>
+            <p class="subtitle">First-semester student at<br>Politeknik Indonusa Surakarta</p>
+            <p class="intro">A curious learner with an interest in technology, logical thinking, and creative ideas. Currently exploring the world of higher education, discovering new skills, and building things one step at a time.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#about">Discover my story</a>
+              <a class="btn" href="#projects">View projects</a>
+            </div>
+          </div>
+          <div class="visual" aria-label="Classic retro decorative card">
+            <div class="sun"></div>
+            <div class="visual-card">
+              <div class="visual-inner">
+                <div class="small-mark">FIELD NOTES / NO. 001</div>
+                <div class="big-mark">AHZ<span style="color:#a34f35">.</span></div>
+                <div class="quote">“Learning is a journey, not a destination.”</div>
+                <div class="small-mark">SURAKARTA · INDONESIA</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-wrap">
+          <section id="about">
+            <div class="section-heading"><span class="star">✳</span><h2>About Me</h2><span class="line"></span></div>
+            <div class="about-grid">
+              <div class="paper-card">
+                <p>Hi, I’m Aquila Hamdan Za’im, a first-semester student at Politeknik Indonusa Surakarta. I enjoy learning how things work, exploring ideas, and solving problems through logical and creative thinking. This portfolio is a small space to document my learning journey, projects, and the skills I develop along the way.</p>
+              </div>
+              <div class="paper-card fact-list">
+                <div class="fact"><span>Full name</span><strong>Aquila Hamdan Za’im</strong></div>
+                <div class="fact"><span>Education</span><strong>Politeknik Indonusa</strong></div>
+                <div class="fact"><span>Semester</span><strong>1st Semester</strong></div>
+                <div class="fact"><span>Location</span><strong>Surakarta, Indonesia</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="columns">
+            <section id="skills">
+              <div class="section-heading"><span class="star">✳</span><h2>Skills &amp; Interests</h2></div>
+              <div class="paper-card">
+                <div class="skill-list">
+                  <div class="skill"><span class="symbol">⌘</span><div>HTML<small>Learning</small></div></div>
+                  <div class="skill"><span class="symbol">✧</span><div>CSS<small>Learning</small></div></div>
+                  <div class="skill"><span class="symbol">JS</span><div>JavaScript<small>Exploring</small></div></div>
+                  <div class="skill"><span class="symbol">∑</span><div>Logical Thinking<small>Interest</small></div></div>
+                  <div class="skill"><span class="symbol">✎</span><div>Creative Ideas<small>Interest</small></div></div>
+                  <div class="skill"><span class="symbol">⌕</span><div>Problem Solving<small>Developing</small></div></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="projects">
+              <div class="section-heading"><span class="star">✳</span><h2>Selected Projects</h2></div>
+              <article class="project-card">
+                <div class="project-top"><span>Project No. 001</span><span>In progress</span></div>
+                <h3>My First Portfolio</h3>
+                <p>A personal website concept created to introduce myself and document my progress as a student. A starting point for future experiments in web development.</p>
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Personal Website</span>
+              </article>
+              <p style="font-size:12px;color:#756b5d;margin:12px 2px 0;">More projects will be added as I continue learning.</p>
+            </section>
+          </div>
+
+          <section class="contact" id="contact">
+            <div>
+              <h2>Let’s connect.</h2>
+              <p>Have an idea, a project, or simply want to say hello?</p>
+            </div>
+            <a href="mailto:hamdanzaim2107@gmail.com">hamdanzaim2107@gmail.com ↗</a>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <span>✳ &nbsp; AQUILA HAMDAN ZA’IM</span>
+      <span>MADE WITH CURIOSITY · SURAKARTA</span>
+      <span>© 2026</span>
+    </footer>
+  </div>
+</body>
+</html>
